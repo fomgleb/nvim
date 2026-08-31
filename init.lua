@@ -984,3 +984,16 @@ end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- ============================================================
+-- SECTION 11: MY OWN CONFIGS
+-- ============================================================
+
+do
+  vim.api.nvim_create_autocmd({ 'FocusLost', 'BufLeave', 'InsertLeave' }, {
+    pattern = '*',
+    callback = function()
+      if vim.bo.modified and vim.bo.buftype == '' and vim.fn.expand '%' ~= '' then vim.cmd 'silent! update' end
+    end,
+  })
+end
