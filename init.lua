@@ -999,5 +999,13 @@ do
   })
 end
 
-vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+  desc = 'Reload file if changed outside of Neovim',
+  group = vim.api.nvim_create_augroup('kickstart-checktime', { clear = true }),
+  callback = function()
+    vim.cmd 'checktime'
+  end,
+})
 
+vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
