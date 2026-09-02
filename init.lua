@@ -1009,3 +1009,5 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHo
 })
 
 vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('c', 'kj', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('v', '//', '<Esc>', { noremap = true, silent = true })
