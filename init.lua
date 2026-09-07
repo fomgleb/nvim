@@ -1019,6 +1019,7 @@ vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('c', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('v', '//', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('n', 'gp', "`[v`]", { desc = "Select pasted text" })
+vim.keymap.set("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<CR>", { desc = "Switch Source/Header" })
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
