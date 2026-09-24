@@ -17,12 +17,21 @@ require('neo-tree').setup {
       },
     },
     filtered_items = {
-      visible = true,          -- Always show filtered items
-      hide_dotfiles = false,   -- Show files starting with .
+      visible = true, -- Always show filtered items
+      hide_dotfiles = false, -- Show files starting with .
       hide_gitignored = false, -- Show files in .gitignore
-      hide_by_name = {},       -- Clear any specific name exclusions
-      never_show = {},         -- Clear items that are never shown
+      hide_by_name = {}, -- Clear any specific name exclusions
+      never_show = {}, -- Clear items that are never shown
     },
     use_libuv_file_watcher = true,
+  },
+  event_handlers = {
+    {
+      event = 'neo_tree_buffer_enter',
+      handler = function()
+        vim.opt_local.number = true
+        vim.opt_local.relativenumber = true
+      end,
+    },
   },
 }
