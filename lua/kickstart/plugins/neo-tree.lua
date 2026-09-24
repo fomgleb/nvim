@@ -23,5 +23,6 @@ require('neo-tree').setup {
       hide_by_name = {},       -- Clear any specific name exclusions
       never_show = {},         -- Clear items that are never shown
     },
+    use_libuv_file_watcher = true,
   },
 }
