@@ -1018,8 +1018,14 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHo
 vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('c', 'kj', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('v', '//', '<Esc>', { noremap = true, silent = true })
-vim.keymap.set('n', 'gp', "`[v`]", { desc = "Select pasted text" })
-vim.keymap.set("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<CR>", { desc = "Switch Source/Header" })
+vim.keymap.set('n', 'gp', '`[v`]', { desc = 'Select pasted text' })
+vim.keymap.set('n', '<leader>ch', '<cmd>LspClangdSwitchSourceHeader<CR>', { desc = 'Switch Source/Header' })
+
+-- Make line numbers brighter (e.g., white or a bright hex code)
+vim.api.nvim_set_hl(0, 'LineNr', { fg = '#FFFFFF', bold = true })
+vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#FFD700', bold = true }) -- Gold for current line
+vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#888888' }) -- Dimmer for context
+vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#888888' }) -- Dimmer for context
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
