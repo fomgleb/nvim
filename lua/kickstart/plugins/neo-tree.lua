@@ -24,6 +24,10 @@ require('neo-tree').setup {
       never_show = {}, -- Clear items that are never shown
     },
     use_libuv_file_watcher = true,
+    follow_current_file = {
+      enabled = true,
+      leave_dirs_open = true,
+    },
   },
   event_handlers = {
     {
