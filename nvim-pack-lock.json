@@ -10,6 +10,10 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "colorbox.nvim": {
+      "rev": "79a4c16b90ccb4b041d9a9841f0ab2017439d469",
+      "src": "https://github.com/linrongbin16/colorbox.nvim"
+    },
     "conform.nvim": {
       "rev": "18aeab3d63d350dcf44d64c462cc489a3412af40",
       "src": "https://github.com/stevearc/conform.nvim"
