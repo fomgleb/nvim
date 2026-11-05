@@ -1069,9 +1069,7 @@ vim.o.autoread = true
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
   desc = 'Reload file if changed outside of Neovim',
   group = vim.api.nvim_create_augroup('kickstart-checktime', { clear = true }),
-  callback = function()
-    vim.cmd 'checktime'
-  end,
+  callback = function() vim.cmd 'checktime' end,
 })
 
 vim.keymap.set('i', 'kj', '<Esc>', { noremap = true, silent = true })
@@ -1090,3 +1088,37 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
+
+local groups = {
+  'Normal',
+  'NormalNC',
+  'NormalFloat',
+  'SignColumn',
+  'EndOfBuffer',
+  'FloatBorder',
+  -- neo-tree
+  'NeoTreeNormal',
+  'NeoTreeNormalNC',
+  'NeoTreeEndOfBuffer',
+  'NeoTreeFloatBorder',
+  'NeoTreeFloatTitle',
+  'NeoTreeTitleBar',
+  'NeoTreeWinSeparator',
+  'NeoTreeStatusLine',
+}
+
+local function transparent()
+  for _, g in ipairs(groups) do
+    local hl = vim.api.nvim_get_hl(0, { name = g, link = false })
+    hl.bg = nil
+    hl.ctermbg = nil
+    hl.link = nil
+    ---@cast hl vim.api.keyset.highlight
+    vim.api.nvim_set_hl(0, g, hl)
+  end
+end
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = function() vim.schedule(transparent) end,
+})
+transparent()
